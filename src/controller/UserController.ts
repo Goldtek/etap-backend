@@ -8,7 +8,6 @@ export class UserController extends BaseController {
 
     protected async executeImpl(req: express.Request, res: express.Response): Promise<void> {
         const { name, email, password } = req.body;
-            console.log('recieved', req.body)
         try {
             const newUser = await this.userModel.create({ name, email, password });
             res.status(201).json(newUser);
